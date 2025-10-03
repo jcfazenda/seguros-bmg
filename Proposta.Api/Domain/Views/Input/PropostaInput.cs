@@ -3,7 +3,11 @@ namespace Proposta.Domain.Models.Input
     public class PropostaInput
     {
         public string NomeCliente { get; set; } = string.Empty;
-        public decimal Valor { get; set; }
 
+        public string Cpf { get; set; } = string.Empty;
+
+        public DateTime DataNascimento { get; set; }
+
+        public decimal Valor { get; set; }
     }
 }

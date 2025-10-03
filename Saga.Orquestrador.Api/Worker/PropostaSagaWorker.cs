@@ -1,32 +1,18 @@
-using Infraestructure.Domain.Repository.Interface;
-using Infraestructure.Domain.Models;
-using Microsoft.Extensions.Hosting;
 
 using RabbitMQ.Client;
-using RabbitMQ.Client.Events;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
-using Rabbit.Message.Api.Messaging;
+using RabbitMQ.Client.Events; 
+using System.Text.Json; 
+using Infraestructure.Domain.Models;
 
 namespace Saga.Orquestrador.Api.Worker
 {
     public class PropostaSagaWorker : BackgroundService
     {
-        private readonly IRabbitPublisher _publisher;
-        private readonly IPropostaRepository _repository;
-
-        public PropostaSagaWorker(IRabbitPublisher publisher, IPropostaRepository repository)
-        {
-            _publisher = publisher;
-            _repository = repository;
-        }
-
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var factory = new ConnectionFactory() { HostName = "localhost", Port = 5672 };
-            using var connection = factory.CreateConnection(); // síncrono
-            using var channel = connection.CreateModel();
+            var connection = factory.CreateConnection();
+            var channel = connection.CreateModel();
 
             channel.QueueDeclare(queue: "proposta-fila",
                                  durable: true,
@@ -34,23 +20,31 @@ namespace Saga.Orquestrador.Api.Worker
                                  autoDelete: false,
                                  arguments: null);
 
-            var consumer = new AsyncEventingBasicConsumer(channel);
-            consumer.Received += async (model, ea) =>
+            var consumer = new EventingBasicConsumer(channel);
+            consumer.Received += (model, ea) =>
             {
+                Console.WriteLine("SAGA ouviu a fila!"); // log simples
+
                 var body = ea.Body.ToArray();
                 var message = JsonSerializer.Deserialize<Propostas>(body);
 
                 if (message != null)
                 {
-                    message.Status = message.NomeCliente switch
+
+                    // Calcula idade
+                    int idade = DateTime.Today.Year - message.DataNascimento.Year;
+                    if (message.DataNascimento.Date > DateTime.Today.AddYears(-idade)) 
+                        idade--;
+
+                    // Aplica a regra de status
+                    message.Status = idade switch
                     {
-                        "000.000.000-01" => "Em Análise",
-                        "000.000.000-02" => "Rejeitada",
-                        _ => "Em Análise"
+                        < 18 => "Rejeitada",
+                        >= 18 and <= 49 => "Em Análise",
+                        >= 50 => "Aprovada"
                     };
 
-                    await _repository.UpdateStatusAsync(message.Id, message.Status);
-                    await _publisher.PublishAsync("contrato-fila", message);
+                    Console.WriteLine($"Proposta Recebida: {message.NomeCliente} | Status atual: {message.Status}");
                 }
 
                 channel.BasicAck(ea.DeliveryTag, false);

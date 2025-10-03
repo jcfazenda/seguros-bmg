@@ -507,6 +507,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.9",
           "Pomelo.EntityFrameworkCore.MySql": "9.0.0",
           "Rabbit.Message.Api": "1.0.0",
+          "RabbitMQ.Client": "6.8.1",
           "Swashbuckle.AspNetCore": "9.0.6"
         },
         "compile": {
@@ -1580,6 +1581,9 @@
         }
       },
       "warningProperties": {
+        "noWarn": [
+          "NU1605"
+        ],
         "warnAsError": [
           "NU1605"
         ]

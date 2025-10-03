@@ -38,6 +38,7 @@
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/Infrastructure.Api.csproj.CoreCompileInputs.cache
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/Infrastructure.Api.MvcApplicationPartsAssemblyInfo.cs
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/Infrastructure.Api.MvcApplicationPartsAssemblyInfo.cache
+/Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/Infrastructure.Api.sourcelink.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Infrastructure.Api/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json

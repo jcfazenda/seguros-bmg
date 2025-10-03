@@ -7,7 +7,7 @@ using Infraestructure.Domain.Services.Commands;
 using Infraestructure.Domain.Services.Handles;
 using Infraestructure.Context;
 using Infraestructure.Domain.Repository.Interface;
-using Infrastructure.Domain.Repository.Queryable;
+using Infraestructure.Domain.Repository.Queryable;
 using Infraestructure.Context.Tenant;
 using Microsoft.OpenApi.Models;
 using Rabbit.Message.Api.Messaging;  

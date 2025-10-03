@@ -1,0 +1,6 @@
+# Adiciona regras básicas de .NET
+echo "bin/" >> .gitignore
+echo "obj/" >> .gitignore
+echo "*.user" >> .gitignore
+echo "*.suo" >> .gitignore
+echo ".vs/" >> .gitignore

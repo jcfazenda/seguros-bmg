@@ -6,6 +6,7 @@
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.AssemblyInfoInputs.cache
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.AssemblyInfo.cs
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.csproj.CoreCompileInputs.cache
+/Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.sourcelink.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.dll
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/refint/Rabbit.Message.Api.dll
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Rabbit.Message.Api/obj/Debug/net9.0/Rabbit.Message.Api.pdb

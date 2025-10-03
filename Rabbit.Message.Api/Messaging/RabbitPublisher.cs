@@ -10,12 +10,14 @@ namespace Rabbit.Message.Api.Messaging
 
         public RabbitPublisher()
         {
-            _connection = RabbitFactory.GetConnection();
+            var factory = new ConnectionFactory() { HostName = "localhost", Port = 5672 };
+            _connection = factory.CreateConnection(); // síncrono
         }
 
         public Task PublishAsync<T>(string queueName, T message)
         {
             using var channel = _connection.CreateModel();
+
             channel.QueueDeclare(queue: queueName,
                                  durable: true,
                                  exclusive: false,
@@ -33,6 +35,9 @@ namespace Rabbit.Message.Api.Messaging
             return Task.CompletedTask;
         }
 
-        public void Dispose() => _connection.Dispose();
+        public void Dispose()
+        {
+            _connection?.Dispose();
+        }
     }
 }

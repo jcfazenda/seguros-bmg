@@ -22,6 +22,8 @@ namespace Infraestructure.Domain.Services.Handles
                 Id = Guid.NewGuid(),
                 NomeCliente = request.NomeCliente,
                 Valor = request.Valor,
+                DataNascimento = request.DataNascimento,
+                Cpf = request.Cpf,
                 Status = "Em Análise"
             };
 

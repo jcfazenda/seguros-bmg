@@ -46,6 +46,7 @@
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/Saga.Orquestrador.API.csproj.CoreCompileInputs.cache
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/Saga.Orquestrador.API.MvcApplicationPartsAssemblyInfo.cs
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/Saga.Orquestrador.API.MvcApplicationPartsAssemblyInfo.cache
+/Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/Saga.Orquestrador.API.sourcelink.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/criattiicloud.com/Desktop/criatti/desafios/seguros-bmg/Saga.Orquestrador.Api/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json

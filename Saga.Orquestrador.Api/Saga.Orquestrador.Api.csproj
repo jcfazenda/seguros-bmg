@@ -15,6 +15,10 @@
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <NoWarn>NU1605</NoWarn>
+</PropertyGroup>
+
   <ItemGroup> 
     <ProjectReference Include="..\Infrastructure.Api\Infrastructure.Api.csproj" /> 
     <ProjectReference Include="..\Rabbit.Message.Api\Rabbit.Message.Api.csproj" />

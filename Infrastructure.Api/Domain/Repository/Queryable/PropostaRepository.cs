@@ -8,7 +8,7 @@ using Infraestructure.Context;
 using Infraestructure.Domain.Models;
 using Infraestructure.Domain.Repository.Interface;
 
-namespace Infrastructure.Domain.Repository.Queryable
+namespace Infraestructure.Domain.Repository.Queryable
 {
     public class PropostaRepository : IPropostaRepository
     {
