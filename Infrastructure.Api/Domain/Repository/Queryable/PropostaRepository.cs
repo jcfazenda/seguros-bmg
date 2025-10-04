@@ -1,12 +1,9 @@
 
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore; 
 using Infraestructure.Context;
 using Infraestructure.Domain.Models;
 using Infraestructure.Domain.Repository.Interface;
+using Infraestructure.Domain.Views.Input;
 
 namespace Infraestructure.Domain.Repository.Queryable
 {
@@ -18,12 +15,30 @@ namespace Infraestructure.Domain.Repository.Queryable
         {
             _context = context;
         }
-
-        public async Task AddAsync(Propostas proposta)
+        
+        public async Task<Propostas> CreateAsync(PropostaInput input)
         {
-            await _context.AddAsync(proposta);
+            var data = new Propostas
+            {
+                NomeCliente = input.NomeCliente,
+                Valor = input.Valor,
+                Status = input.Status,
+                Cpf = input.Cpf,
+                DataNascimento = input.DataNascimento 
+            };
+
+            await _context.AddAsync(data);
             await _context.SaveChangesAsync();
+
+            return data;
         }
+
+        public async Task AddAsync(Propostas input)
+        {
+
+            await _context.AddAsync(input);
+            await _context.SaveChangesAsync();
+        } 
 
         public async Task<Propostas> GetByIdAsync(Guid id)
         {
@@ -35,7 +50,6 @@ namespace Infraestructure.Domain.Repository.Queryable
 
             return proposta;
         }
-
 
         public async Task UpdateAsync(Propostas proposta)
         {
@@ -53,24 +67,22 @@ namespace Infraestructure.Domain.Repository.Queryable
             }
         }
 
-
         public async Task<IEnumerable<Propostas>> GetByPropostaAsync(string cpf)
         {
             return await _context.Proposta
                 .AsNoTracking()
-                .Where(p => p.NomeCliente.Contains(cpf))
+                .Where(p => p.Cpf.Contains(cpf))
                 .ToListAsync();
         }
 
         public async Task<IEnumerable<Propostas>> GetByStatusAsync(string status)
         {
             return await _context.Proposta
-                .AsNoTracking()
-                .Where(p => p.Status == status)
-                .ToListAsync();
+            .AsNoTracking()
+            .Where(p => p.Status == status)
+            .ToListAsync(); 
         }
 
-        // Atualizações pontuais
         public async Task<bool> UpdateStatusAsync(Guid id, string status)
         {
             var proposta = await _context.Proposta.FindAsync(id); // <-- corrigido

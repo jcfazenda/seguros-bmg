@@ -1,11 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using MediatR;
-using AutoMapper;
-using Infraestructure.Domain.Mapping;
-using Infraestructure.Domain.Services.Commands;
 
-using Infraestructure.Domain.Services.Handles;
-using Infraestructure.Context;
+
+using MediatR; 
+using Infraestructure.Domain.Mapping;
+using Infraestructure.Domain.Services.Commands; 
 using Infraestructure.Domain.Repository.Interface;
 using Infraestructure.Domain.Repository.Queryable;
 using Infraestructure.Context.Tenant;
@@ -49,7 +47,7 @@ builder.Services.AddAutoMapper(typeof(PropostaMap).Assembly);
 builder.Services.AddSingleton<IRabbitPublisher, RabbitPublisher>();
 
 // MediatR - registra todos os handlers do assembly
-builder.Services.AddMediatR(typeof(CreatePropostaHandler).Assembly);
+builder.Services.AddMediatR(typeof(CriaPropostaHandler).Assembly);
 
 
 var app = builder.Build();

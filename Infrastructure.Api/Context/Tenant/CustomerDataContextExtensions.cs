@@ -1,8 +1,5 @@
-using System;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Infraestructure.Context;
 
 namespace Infraestructure.Context.Tenant
@@ -22,18 +19,17 @@ namespace Infraestructure.Context.Tenant
                 // Recupera o primeiro segmento da URL (ex: /meudb/api/... -> meudb)
                 var clientSlug = path.Split("/", StringSplitOptions.RemoveEmptyEntries)[0];
 
-                // Busca a connection string dinâmica (MySQL)
+                // Busca a connection string dinâmica (SQL Server)
                 var connString = ConfigurationExtensions.GetClientConnectionString(clientSlug);
 
-                // Configura o DbContext para MySQL
+                // Configura o DbContext para SQL Server
                 var optionsBuilder = new DbContextOptionsBuilder<SeguroContext>();
-                optionsBuilder.UseMySql(
+                optionsBuilder.UseSqlServer(
                     connString,
-                    ServerVersion.AutoDetect(connString), 
-                    mySqlOptions =>
+                    sqlServerOptions =>
                     {
-                        mySqlOptions.EnableRetryOnFailure(); 
-                        mySqlOptions.MigrationsAssembly(typeof(SeguroContext).Assembly.FullName);
+                        sqlServerOptions.EnableRetryOnFailure(); // retries automáticos
+                        sqlServerOptions.MigrationsAssembly(typeof(SeguroContext).Assembly.FullName);
                     }
                 );
 
@@ -43,5 +39,9 @@ namespace Infraestructure.Context.Tenant
                 return new SeguroContext(optionsBuilder.Options);
             });
         }
+
+        
     }
+
+    
 }

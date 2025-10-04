@@ -2,11 +2,13 @@ using Infraestructure.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Infraestructure.Domain.Views.Input;
 
 namespace Infraestructure.Domain.Repository.Interface
 {
     public interface IPropostaRepository
     {
+        Task<Propostas> CreateAsync(PropostaInput input);
         Task AddAsync(Propostas Propostas);
         Task<Propostas> GetByIdAsync(Guid id);
         Task UpdateAsync(Propostas Proposta);

@@ -8,13 +8,10 @@ namespace Infraestructure.Domain.Mapping
     {
         public void Configure(EntityTypeBuilder<Propostas> builder)
         {
-            builder.ToTable("Propostas");
+            builder.ToTable("Proposta");
 
+            builder.Property(m => m.Id).HasColumnName("Id").IsRequired();
             builder.HasKey(o => o.Id);
-
-            builder.Property(m => m.Id)
-                   .HasColumnName("Id")
-                   .IsRequired();
 
             builder.Property(p => p.NomeCliente)
                    .HasColumnName("NomeCliente")

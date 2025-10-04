@@ -1,13 +1,12 @@
-
-using Infraestructure.Domain.Mapping; 
-using Microsoft.EntityFrameworkCore; 
+using Infraestructure.Domain.Mapping;
+using Microsoft.EntityFrameworkCore;
 using Infraestructure.Domain.Models;
 
 namespace Infraestructure.Context
 {
     public class SeguroContext : DbContext
     {
-        public SeguroContext(DbContextOptions options)
+        public SeguroContext(DbContextOptions<SeguroContext> options)
             : base(options)
         {
         }
