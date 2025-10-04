@@ -108,7 +108,7 @@ docker-compose up -d
 Acesse o container SQL Server:
 
 ```bash
-docker exec -it seguros_sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P proposta@56
+docker exec -it seguros_sqlserver /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P proposta@56!
 ```
 
 Execute o script:
@@ -154,7 +154,7 @@ dotnet run --project Infraestructure.Api
 1. Endpoint para criar proposta:
 
 ```http
-POST http://localhost:5000/api/proposta
+POST http://localhost:5000/homologacao/api/proposta
 Content-Type: application/json
 
 {
@@ -164,6 +164,15 @@ Content-Type: application/json
   "cpf": "123.456.789-00",
   "dataNascimento": "1990-05-21",
   "tipoSeguro": "Automovel"
+}
+```
+
+```http
+POST http://localhost:5000/homologacao/api/status
+Content-Type: application/json
+
+{
+  "status": "Em Análise" 
 }
 ```
 
